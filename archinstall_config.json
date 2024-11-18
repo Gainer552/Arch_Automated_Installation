@@ -1,0 +1,55 @@
+{
+    "hostname": "device",
+    "keyboard-language": "us",
+    "timezone": "UTC-8",
+    "sys-language": "English",
+    "sys-encoding": "UTF-8",
+    "bootloader": "grub-install",
+    "uki": true,
+    "kernels": ["linux", "linux-lts"],
+    "additional-repositories": null,
+    "mirror-region": "United States",
+    "packages": [],
+    "profile": {
+        "main": "desktop",
+        "details": "gnome"
+    },
+    "custom": null,
+    "audio_config": {
+        "audio": "pipewire"
+    },
+    "gfx_driver": "All open-source",
+    "network_config": {
+        "type": "NetworkManager",
+        "nics": []
+    },
+    "services": [
+        "NetworkManager", 
+        "gdm", 
+        "pipewire", 
+        "pipewire-pulse", 
+        "bluetooth"
+    ],
+    "custom-commands": [],
+    "users": [
+        {
+            "username": "user",
+            "password": "password123",
+            "sudo": true
+        }
+    ],
+    "root-password": "password123",
+    "ntp": true,
+    "harddrives": [
+        {
+            "path": "/dev/sda",
+            "encryption": {
+                "type": "luks",
+                "cipher": "aes-xts-plain64",
+                "key-size": 256,
+                "passphrase": "password123"
+            }
+        }
+    ],
+    "greeter_type": "gdm"
+}
