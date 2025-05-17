@@ -1,6 +1,4 @@
-**COMING SOON**
-
-# Arch Architect
+# Arch Automated Installation
 
 **Description**
 
