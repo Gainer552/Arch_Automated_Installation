@@ -1,0 +1,64 @@
+{
+    "archinstall-language": "English",
+    "audio_config": {
+        "audio": "pipewire"
+    },
+    "bootloader": "grub-install",
+    "desktop-environment": {
+        "desktop-environment": "gnome"
+    },
+    "disk_config": {
+        "config_type": "default_layout",
+        "device_modifications": [
+            {
+                "device": "/dev/sda",
+                "partitions": [
+                    {
+                        "flags": [
+                            "boot",
+                            "esp"
+                        ],
+                        "fs_type": "fat32",
+                        "mount_options": [],
+                        "mountpoint": "/boot",
+                        "size": {
+                            "unit": "MiB",
+                            "value": 512
+                        },
+                        "start": {
+                            "unit": "MiB",
+                            "value": 1
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    },
+                    {
+                        "flags": [],
+                        "fs_type": "ext4",
+                        "mount_options": [],
+                        "mountpoint": "/",
+                        "size": {
+                            "unit": "GiB",
+                            "value": 100
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    }
+                ]
+            }
+        ]
+    },
+    "keyboard_config": {
+        "layout": "us"
+    },
+    "mirror_region": "United States",
+    "network_config": {
+        "use_networkmanager": true
+    },
+    "profile": "desktop",
+    "repo_servers": [],
+    "script": "",
+    "swap": "file",
+    "timezone": "UTC",
+    "xorg": true
+}
