@@ -2,81 +2,106 @@
 
 **Description**
 
-Arch Architect is a cutting-edge, portable Bash script designed to streamline and automate the installation of a desktop Arch Linux system. With its pre-configured options and seamless integration into the powerful archinstall script, Arch Architect simplifies the process for beginners and experienced users alike.
+This is a streamlined and modern approach to installing Arch Linux using a pre-configured JSON file compatible with the official archinstall script. Designed for speed, portability, and simplicity, this method automates the essential steps of installation, including disk partitioning, system setup, and desktop environment configuration—making Arch accessible without sacrificing its power or philosophy.
 
-Arch Architect is specifically tailored for installing a desktop Arch Linux environment. By leveraging predefined configurations stored in a JSON file, the program reduces the complexity of setting up Arch Linux, automating the most common steps while allowing for minimal user interaction.
+This installation method assumes /dev/sda as the target drive. Users with other disks (e.g., /dev/nvme0n1) must modify that field in the JSON file accordingly. The configuration installs a GNOME desktop, sets up Wi-Fi, enables networking, and uses GRUB for boot management.
 
 **Table of Contents**
 
-- Requirements
-- Installation
-- Usage
-- Features
+1. Requirements
+2. Setup Instructions
+3. Usage
+4. Features
+5. Legal Disclaimer
 
 **Requirements**
 
-- A USB drive containing the Arch Linux ISO.
-- A second USB drive with the Arch_Architect folder, containing the archarchitect.sh script and the archinstall_config.json file.
-- A live Arch Linux environment booted from the Arch Linux ISO.
-- Basic knowledge of mounting USB devices and navigating the command line in the Arch Linux live environment.
+1. A USB drive with the official Arch Linux ISO
+2. A second USB drive containing:
 
-**Installation**
+• archinstall_config.json
 
-Prepare the USB Drives:
+**Setup Instructions**
 
-1. Download the Arch Linux ISO and create a bootable USB drive.
-2. Copy the Arch_Architect folder (containing archarchitect.sh and archinstall_config.json) to a second USB drive.
-3. Boot into the Arch ISO: Insert the USB with the Arch Linux ISO into your computer and boot from it.
-5. Mount the Arch Architect USB: Insert the second USB containing the Arch_Architect folder into your computer.
-6. Mount the USB manually from the live Arch Linux environment: mkdir /mnt/archarchitect
-mount /dev/[your-usb-device] /mnt/archarchitect
-7. Navigate to the Arch_Architect Folder: cd /mnt/archarchitect/Arch_Architect
-8. Run the Script: ./archarchitect.sh
+1. Prepare Installation Media
 
-**Usage**
+• Flash the Arch Linux ISO onto one USB drive.
 
-1. WiFi Setup (Optional): Arch Architect will guide you through connecting to the internet using iwctl. Follow the prompts to select your WiFi network and enter your credentials.
-2. Confirm Arch Install USB: Review the connected devices list displayed by the script.
-3. Confirm the USB containing the Arch Linux ISO is mounted.
-4. Launch the Installation Process: The script will automatically locate the archinstall_config.json file and use it to begin the Arch installation process. Simply wait for the installation to complete. This process will take some time.
-5. Finalize Installation: Once the installation is complete, power off your computer.
-6. Remove both USB drives and boot into your new Arch Linux desktop system.
+• Place the JSON file archinstall_config.json on another USB drive.
+
+2. Boot into the Arch ISO
+
+• Plug in the USB with the Arch ISO and boot from it.
+
+3. Mount the USB Containing the JSON Files
+
+• mkdir /mnt/install_usb
+• mount /dev/[DEVICENAME] /mnt/install_usb  # Replace [DEVICENAME] with the correct USB identifier
+
+4. Start Installation
+
+From the mounted directory:
+
+• archinstall --config /mnt/install_usb/archinstall_config.json
+• Let the installer run. This process may take several minutes.
+
+**Usage Flow**
+
+1. Wi-Fi Setup (optional): The configuration supports Wi-Fi. If needed, manually connect using iwctl before running the installer.
+2. Automated Installation: The script will install:
+
+• EFI partition /boot (FAT32, 512MiB)
+• Root partition / (EXT4, remaining space)
+• GNOME desktop
+• Pipewire audio
+• Networking via NetworkManager
+• Configured locale, timezone, and keyboard
+
+3. Finalization: When complete, shut down the system, remove both USBs, and boot into your new Arch system.
 
 **Features**
 
-- Pre-Configured Arch Installation: Automatically sets up a desktop Arch Linux environment using a JSON configuration file.
-- WiFi Configuration: Automates the process of connecting to WiFi using iwctl.
-- Streamlined Workflow: Guides users through essential setup steps, eliminating the complexity of manual configuration.
-- Portability: Designed to run directly from a USB drive in a live Arch Linux environment.
+• Preconfigured Automation: Uses official archinstall functionality to auto-provision an Arch Linux system.
+• Full Desktop System: GNOME desktop with default apps and tools.
+• Network Ready: DHCP setup and NetworkManager enabled.
+• Silent Mode: No need to manually walk through the installer.
+• Portable: Designed to be used on any system with /dev/sda by default—editable for others.
 
 **Legal Disclaimer**
 
-Arch Architect is provided "as is" without any guarantees or warranties, express or implied. By using this program, you agree to the following terms:
+This installation method and its configuration files are provided "as is" with no warranties, express or implied.
 
 **No Liability**
 
-The developer of Arch Architect shall not be held liable for any damages, data loss, system failures, or other unintended consequences resulting from the use, misuse, or inability to use this software. This includes, but is not limited to, incidental, special, indirect, or consequential damages.
+The developer assumes no responsibility for:
 
-**No Responsibility for Data Loss**
+• Data loss
+• System misconfiguration
+• Hardware failure
+• Installation errors or corruption
+• Any direct or indirect damages resulting from use
 
-The installation process involves modifying partitions and system configurations, which may result in data loss or corruption. It is the user's sole responsibility to back up all critical data before using Arch Architect. The developer assumes no responsibility for any loss or damage to data.
+**Data Responsibility**
+
+You are fully responsible for backing up data. This process will wipe and reformat the target drive.
 
 **User Responsibility**
 
-By using Arch Architect, you acknowledge that:
+By using these configurations, you acknowledge:
 
-- You understand the risks associated with partitioning and installing an operating system.
-- You have reviewed and understood all steps required to use the program safely and effectively.
-- You accept full responsibility for any consequences arising from the use of this software.
-- No Support Guarantee
+• You understand and accept the risks of OS installation.
+• You will review and modify your target partition/SSD/HDD if your system uses another disk.
+• You assume full responsibility for all outcomes.
 
-The developer is under no obligation to provide:
+**No Support Guarantee**
 
-- Technical support or assistance.
-- Updates, bug fixes, or feature enhancements.
+• There is no promise of:
+• Support or troubleshooting
+• Bug fixes or updates
+• Ongoing maintenance
 
-**Compliance with Local Laws**
+**Legal Compliance**
 
-It is the user's responsibility to ensure that their use of Arch Architect complies with all applicable laws and regulations in their jurisdiction. The developer assumes no liability for legal repercussions arising from the use of this software.
+You are responsible for ensuring that your use of this method complies with the laws and regulations in your jurisdiction.
 
-By downloading, installing, or using Arch Architect, you agree to the terms of this disclaimer. If you do not agree to these terms, do not use this program.
+By using these files, you accept the terms above. If you do not agree, do not proceed with the installation.
