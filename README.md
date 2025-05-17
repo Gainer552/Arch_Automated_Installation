@@ -36,6 +36,7 @@ This installation method assumes /dev/sda as the target drive. Users with other 
 3. Mount the USB Containing the JSON Files
 
 • mkdir /mnt/install_usb
+
 • mount /dev/[DEVICENAME] /mnt/install_usb  # Replace [DEVICENAME] with the correct USB identifier
 
 4. Start Installation
@@ -43,6 +44,7 @@ This installation method assumes /dev/sda as the target drive. Users with other 
 From the mounted directory:
 
 • archinstall --config /mnt/install_usb/archinstall_config.json
+
 • Let the installer run. This process may take several minutes.
 
 **Usage Flow**
@@ -51,10 +53,15 @@ From the mounted directory:
 2. Automated Installation: The script will install:
 
 • EFI partition /boot (FAT32, 512MiB)
+
 • Root partition / (EXT4, remaining space)
+
 • GNOME desktop
+
 • Pipewire audio
+
 • Networking via NetworkManager
+
 • Configured locale, timezone, and keyboard
 
 3. Finalization: When complete, shut down the system, remove both USBs, and boot into your new Arch system.
@@ -62,9 +69,13 @@ From the mounted directory:
 **Features**
 
 • Preconfigured Automation: Uses official archinstall functionality to auto-provision an Arch Linux system.
+
 • Full Desktop System: GNOME desktop with default apps and tools.
+
 • Network Ready: DHCP setup and NetworkManager enabled.
+
 • Silent Mode: No need to manually walk through the installer.
+
 • Portable: Designed to be used on any system with /dev/sda by default—editable for others.
 
 **Legal Disclaimer**
@@ -76,9 +87,13 @@ This installation method and its configuration files are provided "as is" with n
 The developer assumes no responsibility for:
 
 • Data loss
+
 • System misconfiguration
+
 • Hardware failure
+
 • Installation errors or corruption
+
 • Any direct or indirect damages resulting from use
 
 **Data Responsibility**
@@ -90,14 +105,19 @@ You are fully responsible for backing up data. This process will wipe and reform
 By using these configurations, you acknowledge:
 
 • You understand and accept the risks of OS installation.
+
 • You will review and modify your target partition/SSD/HDD if your system uses another disk.
+
 • You assume full responsibility for all outcomes.
 
 **No Support Guarantee**
 
 • There is no promise of:
+
 • Support or troubleshooting
+
 • Bug fixes or updates
+
 • Ongoing maintenance
 
 **Legal Compliance**
