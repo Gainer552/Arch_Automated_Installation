@@ -125,3 +125,5 @@ By using these configurations, you acknowledge:
 You are responsible for ensuring that your use of this method complies with the laws and regulations in your jurisdiction.
 
 By using these files, you accept the terms above. If you do not agree, do not proceed with the installation.
+
+**Disclaimer:** This project is not affiliated with or endorsed by Arch Linux or the Arch Linux Project. “Arch Linux” is a registered trademark of Judd Vinet and the Arch Linux Project. This is an unofficial user-maintained toolkit built for the Arch community.
